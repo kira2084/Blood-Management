@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Information Form</title>
+  <style>
+    body {
+      background-color: #c6e354c6;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #96716db3;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #555;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .options-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .options-container select {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #0fc345;
+      color: #fff;
+      padding: 10px 100px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #be0d31;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Donor Information Form</h2>
+    <form action="http://localhost:5000/donor" method="post">
+      <label for="donor_name">Donor Name:</label>
+      <input type="text" id="donor_name" name="donor_name" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="date_of_birth">Date of Birth:</label>
+      <input type="date" id="date_of_birth" name="date_of_birth" required>
+
+      <label for="mobile_number">Mobile Number:</label>
+      <input type="number" id="mobile_number" name="mobile_number"  required>
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="weight">Weight:</label>
+      <input type="number" id="weight" name="weight" required>
+
+      <label for="blood_pressure">Blood Pressure:</label>
+      <input type="number" id="blood_pressure" name="blood_pressure" required>
+
+      <label for="iron_content">Iron Content:</label>
+      <input type="number" id="iron_content" name="iron_content" required>
+
+      <div class="options-container">
+        <label for="doctor_name">Doctor Name:</label>
+        <select type="text" id="doctor_name" name="doctor_name">
+            <option value="None">None</option>
+          <option value="Dr.Anish pandey">Dr.Anish pandey</option>
+          <option value="Dr.Manisha shetty">Dr.Manisha shetty</option>
+          <option value="Dr.Faran">Dr.Faran</option>
+          <option value="Dr.Das">Dr.Das</option>
+          <option value="Dr.Vashnavi">Dr.Vashnavi</option>
+          <option value="Dr.Gahana">Dr.Gahana</option>
+        </select>
+        <br>
+        <label for="blood_bank_name">Blood Bank Name:</label>
+        <select type="text" id="blood_bank_name" name="blood_bank_name">
+            <option value="None">None</option>
+          <option value="Kasturbha medical Hospital">Kasturbha medical Hospital</option>
+          <option value="KIMS Hospital">KIMS Hospital</option>
+          <option value="KC General Hospital">KC General Hospital</option>
+          <option value="N.S.C Medical College">N.S.C Medical College</option>
+          
+        </select>
+          
+        <label for="blood_type">Blood Type:</label>
+        <select id="blood_type" name="blood_type">
+          <option value="A+">A+</option>
+          <option value="B+">B+</option>
+          <option value="O+">O+</option>
+          <option value="AB+">AB+</option>
+          <option value="A-">A-</option>
+          <option value="B-">B-</option>
+          <option value="O-">O-</option>
+          <option value="AB-">AB-</option>
+        </select>
+      </div>
+      <div class="btn">
+        <button type="submit">Submit</button>
+    </div>
+    </form>
+  </div>
+
+</body>
+</html>

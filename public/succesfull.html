@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Loading and Success Message</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .loading-spinner,
+        .success-box {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;
+        }
+
+        .loading-spinner.show {
+            display: block;
+        }
+
+        .success-box.show {
+            display: block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinner {
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <div class="success-box" id="successMessage">
+        <p>Data successfully saved!</p>
+    </div>
+
+    <script>
+        // Display the loading spinner
+        document.getElementById('loadingSpinner').classList.add('show');
+
+        // Simulate data saving delay (e.g., AJAX request)
+        setTimeout(() => {
+            // Hide the loading spinner
+            document.getElementById('loadingSpinner').classList.remove('show');
+
+            // Display the success message box
+            document.getElementById('successMessage').classList.add('show');
+
+            // You might want to set a timeout to hide the message after a few seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 3000); // Adjust the duration as needed
+        }, 2000); // Simulated data saving delay (adjust as needed)
+    </script>
+
+</body>
+</html>

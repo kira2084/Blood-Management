@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Type Loader</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .loader-container {
+      text-align: center;
+    }
+
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .message {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader-container" id="loaderContainer">
+    <div class="loader"></div>
+    <div class="message">Searching for blood type<span id="dots">...</span></div>
+  </div>
+
+  <script>
+    // Assume you have a variable to check if the blood type is available in the hospital
+    const bloodTypeAvailable = false;
+
+    // Show loader with searching message
+    const loaderContainer = document.getElementById('loaderContainer');
+    const loader = document.querySelector('.loader');
+    loaderContainer.style.display = 'block';
+
+    // Function to update the message with dots
+    function updateDots() {
+      const dotsElement = document.getElementById('dots');
+      const currentDots = dotsElement.innerText;
+      dotsElement.innerText = currentDots.length < 3 ? currentDots + '.' : '';
+    }
+
+    // Update the message periodically with dots while searching
+    const dotsInterval = setInterval(updateDots, 500);
+
+    // Simulate an asynchronous search (replace this with your actual search logic)
+    setTimeout(() => {
+      // Stop the dots animation
+      clearInterval(dotsInterval);
+
+      // Update the message based on blood type availability
+      if (!bloodTypeAvailable) {
+        loaderContainer.querySelector('.message').innerText = 'Blood type not available in this hospital.';
+      } else {
+        loaderContainer.querySelector('.message').innerText = 'Blood type available in this hospital.';
+      }
+
+      // Hide only the loader element after the search is complete
+      loader.style.display = 'none';
+    }, 3000); // Simulating a 3-second search delay
+  </script>
+
+</body>
+</html>
